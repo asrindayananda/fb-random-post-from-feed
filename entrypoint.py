@@ -51,6 +51,7 @@ random_post_url = u('{0}#{1}'.format(
 
 facebook_api_data = {'message': random_post_title,
                      'link': random_post_url,
+                     'picture': 'https://azcodez.com/images/150633b813614aa8b24cd8459fcf0b21.png',
                      'access_token': facebook_access_token}
 
 http_request = Request(url=facebook_api_end, method='POST',
