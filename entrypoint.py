@@ -46,7 +46,7 @@ random_post_url = u('{0}#{1}'.format(
     current_timestamp))
 
 facebook_api_data = {'message': random_post_title,
-                     'link': random_post_url
+                     'link': random_post_url,
                      'access_token': facebook_access_token}
 
 http_request = Request(url=facebook_api_end, method='POST',
