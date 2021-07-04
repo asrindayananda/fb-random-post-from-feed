@@ -1,9 +1,12 @@
 <p align='center'>
   <h3 align="center">fb-random-post-from-feed</h3>
-  <p align="center">GitHub Action for posting a random article from an atom feed to a facebook page</p>
+  <p align="center">GitHub Action for posting a random article from an hashnode feed to a facebook page</p>
 </p>
 
 ---
+
+## Currently
+- Posts to Azcodez FB Wall Monday at 2300
 
 Current version: 0.1.1
 
