@@ -61,17 +61,15 @@ random_post_url = u('{0}#{1}'.format(
     json_index_filtered[random_post_id]['url'],
     current_timestamp))
 
-# facebook_api_data = {'message': random_post_title,
-#                      'link': random_post_url,
-#                      'access_token': facebook_access_token}
-
-# http_request = Request(url=facebook_api_end, method='POST',
-#                        data=urlencode(facebook_api_data).encode())
-
+# Azcodez
+facebook_api_data = {'message': random_post_title,
+                     'link': random_post_url,
+                     'access_token': facebook_access_token}
+http_request = Request(url=facebook_api_end, method='POST',
+                       data=urlencode(facebook_api_data).encode())
 # facebook_api_data_two = {'message': 'Testing',
 #                      'link': random_post_url,
 #                      'access_token': facebook_access_token}
-
 # http_request_two = Request(url=facebook_api_end, method='POST',
 #                        data=urlencode(facebook_api_data_two).encode())
 
@@ -94,8 +92,8 @@ http_request_mym = Request(url=facebook_api_end_mym, method='POST',
 count = 0
 while count < 6:
     try:
-        # result = json.loads(str(urlopen(http_request).read(), 'utf-8'))
-        # time.sleep(60)
+        result = json.loads(str(urlopen(http_request).read(), 'utf-8'))
+        time.sleep(60)
         # result = json.loads(str(urlopen(http_request_two).read(), 'utf-8'))
         # time.sleep(60)
         # result = json.loads(str(urlopen(http_request_photo).read(), 'utf-8'))
