@@ -4,6 +4,7 @@
 import os
 import sys
 import json
+import time
 from random import choice
 from urllib.request import urlopen, Request
 from urllib.parse import urlencode
@@ -52,10 +53,19 @@ facebook_api_data = {'message': random_post_title,
 http_request = Request(url=facebook_api_end, method='POST',
                        data=urlencode(facebook_api_data).encode())
 
+facebook_api_data_two = {'message': 'Test',
+                     'link': random_post_url,
+                     'access_token': facebook_access_token}
+
+http_request_two = Request(url=facebook_api_end, method='POST',
+                       data=urlencode(facebook_api_data_two).encode())
+
 count = 0
 while count < 6:
     try:
         result = json.loads(str(urlopen(http_request).read(), 'utf-8'))
+        time.sleep(60)
+        result = json.loads(str(urlopen(http_request_two).read(), 'utf-8'))
     except Exception as e:
         print('There was an error publishing: {0}'.format(e))
         count += 1
