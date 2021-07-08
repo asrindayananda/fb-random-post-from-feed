@@ -17,9 +17,11 @@ from utils import u, html_unescape, filter_json_index_by_year
 
 json_index_content = {}
 facebook_page_id = os.environ.get('FACEBOOK_PAGE_ID')
+facebook_page_id_motivateym = os.environ.get('FACEBOOK_PAGE_ID_MOTIVATEYM')
 facebook_access_token = os.environ.get('FACEBOOK_ACCESS_TOKEN')
 facebook_api_end = 'https://graph.facebook.com/{0}/feed'.format(facebook_page_id)
 facebook_api_photo_end = 'https://graph.facebook.com/{0}/photos'.format(facebook_page_id)
+facebook_api_end_mym = 'https://graph.facebook.com/{0}/feed'.format(facebook_page_id_motivateym)
 feed_url = os.environ.get('FEED_URL')
 feed_data = parse_rss_bytes(urlopen(feed_url).read())
 
@@ -61,6 +63,13 @@ random_post_url = u('{0}#{1}'.format(
 # http_request_two = Request(url=facebook_api_end, method='POST',
 #                        data=urlencode(facebook_api_data_two).encode())
 
+# MYM post
+facebook_api_data_mym = {'message': 'Please ignore Testing API',
+                     'link': random_post_url,
+                     'access_token': facebook_access_token}
+http_request_mym = Request(url=facebook_api_end_mym, method='POST',
+                       data=urlencode(facebook_api_data_mym).encode())
+
 facebook_api_data_photo = {'url': 'https://azcodez.com/images/150633b813614aa8b24cd8459fcf0b21.png',
                      'access_token': facebook_access_token}
 
@@ -74,7 +83,8 @@ while count < 6:
         # time.sleep(60)
         # result = json.loads(str(urlopen(http_request_two).read(), 'utf-8'))
         # time.sleep(60)
-        result = json.loads(str(urlopen(http_request_photo).read(), 'utf-8'))
+        # result = json.loads(str(urlopen(http_request_photo).read(), 'utf-8'))
+        result = json.loads(str(urlopen(http_request_mym).read(), 'utf-8'))
     except Exception as e:
         print('There was an error publishing: {0}'.format(e))
         count += 1
