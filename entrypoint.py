@@ -32,14 +32,14 @@ facebook_api_end_mym = 'https://graph.facebook.com/{0}/feed'.format(facebook_pag
 feed_url = os.environ.get('FEED_URL')
 feed_data = parse_rss_bytes(urlopen(feed_url).read())
 
+# If in below timeslot post
 current_timestamp = int(datetime.now().strftime('%Y%m%d%H%M%S'))
 current_hour = int(datetime.now().strftime('%H'))
-
-# If in below timeslot post
 # if current_hour not in [9, 13, 15, 22]:
 #     print('Script wasnt called in a recommended hour. Aborting.')
 #     sys.exit(0)
 
+# Shuffle though xml link
 for post in feed_data.items:
     post_timestamp = post.pub_date.strftime('%Y%m%d%H%M%S')
     json_index_content[post_timestamp] = {
@@ -93,7 +93,7 @@ count = 0
 while count < 6:
     try:
         result = json.loads(str(urlopen(http_request).read(), 'utf-8'))
-        time.sleep(60)
+        time.sleep(3)
         # result = json.loads(str(urlopen(http_request_two).read(), 'utf-8'))
         # time.sleep(60)
         # result = json.loads(str(urlopen(http_request_photo).read(), 'utf-8'))
