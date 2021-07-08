@@ -90,7 +90,7 @@ http_request_mym = Request(url=facebook_api_end_mym, method='POST',
 # Get few urls and shuffle them and post
 
 count = 0
-while count < 6:
+while count < 1:
     try:
         result = json.loads(str(urlopen(http_request).read(), 'utf-8'))
         time.sleep(3)
@@ -98,7 +98,7 @@ while count < 6:
         # time.sleep(60)
         # result = json.loads(str(urlopen(http_request_photo).read(), 'utf-8'))
         # MYM
-        result = json.loads(str(urlopen(http_request_mym).read(), 'utf-8'))
+        # result = json.loads(str(urlopen(http_request_mym).read(), 'utf-8'))
     except Exception as e:
         print('There was an error publishing: {0}'.format(e))
         count += 1
