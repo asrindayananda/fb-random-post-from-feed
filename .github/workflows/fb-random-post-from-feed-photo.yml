@@ -1,7 +1,7 @@
 name: fb-random-post-from-feed-photo
 on:
-  push:
-    branches: master
+  #push:
+  #  branches: master
   schedule:
     - cron: '0 19 * * *'
   watch:

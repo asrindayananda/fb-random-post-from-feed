@@ -19,6 +19,7 @@ json_index_content = {}
 facebook_page_id = os.environ.get('FACEBOOK_PAGE_ID')
 facebook_access_token = os.environ.get('FACEBOOK_ACCESS_TOKEN')
 facebook_api_end = 'https://graph.facebook.com/{0}/feed'.format(facebook_page_id)
+facebook_api_photo_end = 'https://graph.facebook.com/{0}/photos'.format(facebook_page_id)
 feed_url = os.environ.get('FEED_URL')
 feed_data = parse_rss_bytes(urlopen(feed_url).read())
 
@@ -53,12 +54,15 @@ facebook_api_data = {'message': random_post_title,
 http_request = Request(url=facebook_api_end, method='POST',
                        data=urlencode(facebook_api_data).encode())
 
-facebook_api_data_two = {'message': 'Test',
+facebook_api_data_two = {'message': 'Testing',
                      'link': random_post_url,
                      'access_token': facebook_access_token}
 
 http_request_two = Request(url=facebook_api_end, method='POST',
                        data=urlencode(facebook_api_data_two).encode())
+
+facebook_api_data_photo = {'url': 'https://azcodez.com/images/150633b813614aa8b24cd8459fcf0b21.png',
+                     'access_token': facebook_access_token}
 
 count = 0
 while count < 6:
