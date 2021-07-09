@@ -24,8 +24,8 @@ facebook_api_end = 'https://graph.facebook.com/{0}/feed'.format(facebook_page_id
 facebook_api_photo_end = 'https://graph.facebook.com/{0}/photos'.format(facebook_page_id)
 
 # MYM
-facebook_page_id_mym = os.environ.get('FACEBOOK_PAGE_ID')
-facebook_access_token_mym = os.environ.get('FACEBOOK_ACCESS_TOKEN')
+facebook_page_id_mym = os.environ.get('FACEBOOK_PAGE_ID_MYM')
+facebook_access_token_mym = os.environ.get('FACEBOOK_ACCESS_TOKEN_MYM')
 facebook_api_end_mym = 'https://graph.facebook.com/{0}/feed'.format(facebook_page_id_mym)
 
 # Feed url - Hashcode
@@ -62,11 +62,11 @@ random_post_url = u('{0}#{1}'.format(
     current_timestamp))
 
 # Azcodez
-# facebook_api_data = {'message': random_post_title,
-#                      'link': random_post_url,
-#                      'access_token': facebook_access_token}
-# http_request = Request(url=facebook_api_end, method='POST',
-#                        data=urlencode(facebook_api_data).encode())
+facebook_api_data = {'message': random_post_title,
+                     'link': random_post_url,
+                     'access_token': facebook_access_token}
+http_request = Request(url=facebook_api_end, method='POST',
+                       data=urlencode(facebook_api_data).encode())
 # facebook_api_data_two = {'message': 'Testing',
 #                      'link': random_post_url,
 #                      'access_token': facebook_access_token}
@@ -74,11 +74,11 @@ random_post_url = u('{0}#{1}'.format(
 #                        data=urlencode(facebook_api_data_two).encode())
 
 # MYM post
-facebook_api_data = {'message': 'Hi',
-                     'link': random_post_url,
-                     'access_token': facebook_access_token_mym}
-http_request_mym = Request(url=facebook_api_end, method='POST',
-                       data=urlencode(facebook_api_data).encode())
+facebook_api_data_mym = {'message': 'Hi',
+                        'link': random_post_url,
+                        'access_token': facebook_access_token_mym}
+http_request_mym = Request(url=facebook_api_end_mym, method='POST',
+                       data=urlencode(facebook_api_data_mym).encode())
 
 # Photo post
 # facebook_api_data_photo = {'url': 'https://azcodez.com/images/150633b813614aa8b24cd8459fcf0b21.png',
@@ -94,8 +94,8 @@ http_request_mym = Request(url=facebook_api_end, method='POST',
 count = 0
 while count < 1:
     try:
-        # result = json.loads(str(urlopen(http_request).read(), 'utf-8'))
-        # time.sleep(3)
+        result = json.loads(str(urlopen(http_request).read(), 'utf-8'))
+        time.sleep(3)
         # result = json.loads(str(urlopen(http_request_two).read(), 'utf-8'))
         # time.sleep(60)
         # result = json.loads(str(urlopen(http_request_photo).read(), 'utf-8'))
