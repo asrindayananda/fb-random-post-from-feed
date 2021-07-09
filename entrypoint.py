@@ -24,8 +24,8 @@ facebook_api_end = 'https://graph.facebook.com/{0}/feed'.format(facebook_page_id
 facebook_api_photo_end = 'https://graph.facebook.com/{0}/photos'.format(facebook_page_id)
 
 # MYM
-facebook_page_id_mym = os.environ.get('FACEBOOK_PAGE_ID_MYM')
-facebook_access_token_mym = os.environ.get('FACEBOOK_ACCESS_TOKEN_MYM')
+facebook_page_id_mym = os.environ.get('FACEBOOK_PAGE_ID')
+facebook_access_token_mym = os.environ.get('FACEBOOK_ACCESS_TOKEN')
 facebook_api_end_mym = 'https://graph.facebook.com/{0}/feed'.format(facebook_page_id_mym)
 
 # Feed url - Hashcode
