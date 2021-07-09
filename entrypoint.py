@@ -74,11 +74,11 @@ random_post_url = u('{0}#{1}'.format(
 #                        data=urlencode(facebook_api_data_two).encode())
 
 # MYM post
-facebook_api_data_mym = {'message': 'Please ignore Testing API',
-                        'link': 'https://azcodez.com/',
-                        'access_token': facebook_access_token_mym}
-http_request_mym = Request(url=facebook_api_end_mym, method='POST',
-                       data=urlencode(facebook_api_data_mym).encode())
+facebook_api_data = {'message': 'Hi',
+                     'link': random_post_url,
+                     'access_token': facebook_access_token_mym}
+http_request_mym = Request(url=facebook_api_end, method='POST',
+                       data=urlencode(facebook_api_data).encode())
 
 # Photo post
 # facebook_api_data_photo = {'url': 'https://azcodez.com/images/150633b813614aa8b24cd8459fcf0b21.png',
