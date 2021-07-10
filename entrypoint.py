@@ -108,20 +108,20 @@ while count < 1:
     break
 
 # MYM post
-count = 0
-while count < 1:
-    try:
-        # result = json.loads(str(urlopen(http_request_two).read(), 'utf-8'))
-        # time.sleep(60)
-        # result = json.loads(str(urlopen(http_request_photo).read(), 'utf-8'))
-        # MYM
-        result = json.loads(str(urlopen(http_request_mym).read(), 'utf-8'))
-    except Exception as e:
-        print('There was an error publishing: {0}'.format(e))
-        count += 1
-        continue
-    if 'error' in result:
-        count += 1
-        continue
-    print('Successfully published!: {0}'.format(random_post_url))
-    break
+# count = 0
+# while count < 1:
+#     try:
+#         # result = json.loads(str(urlopen(http_request_two).read(), 'utf-8'))
+#         # time.sleep(60)
+#         # result = json.loads(str(urlopen(http_request_photo).read(), 'utf-8'))
+#         # MYM
+#         result = json.loads(str(urlopen(http_request_mym).read(), 'utf-8'))
+#     except Exception as e:
+#         print('There was an error publishing: {0}'.format(e))
+#         count += 1
+#         continue
+#     if 'error' in result:
+#         count += 1
+#         continue
+#     print('Successfully published!: {0}'.format(random_post_url))
+#     break
