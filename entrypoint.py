@@ -25,6 +25,11 @@ facebook_page_id_mym = os.environ.get('FACEBOOK_PAGE_ID_MYM')
 facebook_access_token_mym = os.environ.get('FACEBOOK_ACCESS_TOKEN_MYM')
 facebook_api_end_mym = 'https://graph.facebook.com/{0}/feed'.format(facebook_page_id_mym)
 
+# MotivateNotes
+facebook_page_id_motivateNotes = os.environ.get('FACEBOOK_PAGE_ID_MOTIVATENOTES')
+facebook_access_token_motivateNotes = os.environ.get('FACEBOOK_ACCESS_TOKEN_MOTIVATENOTES')
+facebook_api_photo_end_motivateNotes = 'https://graph.facebook.com/{0}/photos'.format(facebook_page_id_motivateNotes)
+
 # Feed url - Hashcode
 feed_url = os.environ.get('FEED_URL')
 feed_data = parse_rss_bytes(urlopen(feed_url).read())
@@ -76,11 +81,17 @@ facebook_api_data_mym = {'message': 'Motivation',
                         'access_token': facebook_access_token_mym}
 http_request_mym = Request(url=facebook_api_end_mym, method='POST', data=urlencode(facebook_api_data_mym).encode())
 
-# Photo post
+# AzCodez Photo post
 # facebook_api_data_photo = {'url': 'https://azcodez.com/images/150633b813614aa8b24cd8459fcf0b21.png',
 #                      'access_token': facebook_access_token}
 # http_request_photo = Request(url=facebook_api_photo_end, method='POST',
 #                        data=urlencode(facebook_api_data_photo).encode())
+
+# Motivate Notes Photo post
+facebook_api_data_photo_motivateNotes = {'url': 'https://scontent.ffab1-1.fna.fbcdn.net/v/t1.6435-9/97027597_117054746669134_8270735328390676480_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=e3f864&_nc_ohc=u4rzh8I7iLMAX_-V9E_&tn=LL9nY5DnhF3ZEmWe&_nc_ht=scontent.ffab1-1.fna&oh=4db5f120b997c61c8e8544a2aadc844c&oe=60F92534',
+                      'access_token': facebook_access_token_motivateNotes}
+http_request_photo_motivateNotes = Request(url=facebook_api_photo_end_motivateNotes, method='POST',
+                        data=urlencode(facebook_api_data_photo_motivateNotes).encode())
 
 # Chairmans post
 # Get few urls and shuffle them and post
@@ -104,11 +115,27 @@ http_request_mym = Request(url=facebook_api_end_mym, method='POST', data=urlenco
 #     break
 
 # MYM post
+# count = 0
+# while count < 1:
+#     try:
+#         # time.sleep(60)
+#         result = json.loads(str(urlopen(http_request_mym).read(), 'utf-8'))
+#     except Exception as e:
+#         print('There was an error publishing: {0}'.format(e))
+#         count += 1
+#         continue
+#     if 'error' in result:
+#         count += 1
+#         continue
+#     print('Successfully published!: {0}'.format(random_post_url))
+#     break
+
+# Motivate Notes Photo post
 count = 0
 while count < 1:
     try:
         # time.sleep(60)
-        result = json.loads(str(urlopen(http_request_mym).read(), 'utf-8'))
+        result = json.loads(str(urlopen(http_request_photo_motivateNotes).read(), 'utf-8'))
     except Exception as e:
         print('There was an error publishing: {0}'.format(e))
         count += 1
@@ -116,5 +143,5 @@ while count < 1:
     if 'error' in result:
         count += 1
         continue
-    print('Successfully published!: {0}'.format(random_post_url))
+    print('Successfully published photo!: ')
     break
