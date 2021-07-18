@@ -15,10 +15,10 @@ from utils import u, html_unescape, filter_json_index_by_year
 json_index_content = {}
 
 # Azcodez
-# facebook_page_id = os.environ.get('FACEBOOK_PAGE_ID')
-# facebook_access_token = os.environ.get('FACEBOOK_ACCESS_TOKEN')
-# facebook_api_end = 'https://graph.facebook.com/{0}/feed'.format(facebook_page_id)
-# facebook_api_photo_end = 'https://graph.facebook.com/{0}/photos'.format(facebook_page_id)
+facebook_page_id = os.environ.get('FACEBOOK_PAGE_ID')
+facebook_access_token = os.environ.get('FACEBOOK_ACCESS_TOKEN')
+facebook_api_end = 'https://graph.facebook.com/{0}/feed'.format(facebook_page_id)
+facebook_api_photo_end = 'https://graph.facebook.com/{0}/photos'.format(facebook_page_id)
 
 # MYM
 facebook_page_id_mym = os.environ.get('FACEBOOK_PAGE_ID_MYM')
@@ -29,9 +29,6 @@ facebook_api_end_mym = 'https://graph.facebook.com/{0}/feed'.format(facebook_pag
 facebook_page_id_motivateNotes = os.environ.get('FACEBOOK_PAGE_ID_MOTIVATENOTES')
 facebook_access_token_motivateNotes = os.environ.get('FACEBOOK_ACCESS_TOKEN_MOTIVATENOTES')
 facebook_api_photo_end_motivateNotes = 'https://graph.facebook.com/{0}/photos'.format(facebook_page_id_motivateNotes)
-facebook_page_id = os.environ.get('FACEBOOK_PAGE_ID_MOTIVATENOTES')
-facebook_access_token = os.environ.get('FACEBOOK_ACCESS_TOKEN_MOTIVATENOTES')
-facebook_api_end = 'https://graph.facebook.com/{0}/feed'.format(facebook_page_id)
 
 # Feed url - Hashcode
 feed_url = os.environ.get('FEED_URL')
@@ -66,12 +63,12 @@ random_post_url = u('{0}#{1}'.format(
     json_index_filtered[random_post_id]['url'],
     current_timestamp))
 
-# Azcodez WORKS
-# facebook_api_data = {'message': random_post_title,
-#                      'link': random_post_url,
-#                      'access_token': facebook_access_token}
-# http_request = Request(url=facebook_api_end, method='POST',
-#                        data=urlencode(facebook_api_data).encode())
+# Azcodez
+facebook_api_data = {'message': random_post_title,
+                     'link': random_post_url,
+                     'access_token': facebook_access_token}
+http_request = Request(url=facebook_api_end, method='POST',
+                       data=urlencode(facebook_api_data).encode())
 # facebook_api_data_two = {'message': 'Testing',
 #                      'link': random_post_url,
 #                      'access_token': facebook_access_token}
@@ -79,10 +76,10 @@ random_post_url = u('{0}#{1}'.format(
 #                        data=urlencode(facebook_api_data_two).encode()) 
 
 # MYM post
-# facebook_api_data_mym = {'message': 'Motivation',
-#                         'link': 'https://youtu.be/tnWR1wMxFWs',
-#                         'access_token': facebook_access_token_mym}
-# http_request_mym = Request(url=facebook_api_end_mym, method='POST', data=urlencode(facebook_api_data_mym).encode())
+facebook_api_data_mym = {'message': 'Motivation',
+                        'link': 'https://youtu.be/tnWR1wMxFWs',
+                        'access_token': facebook_access_token_mym}
+http_request_mym = Request(url=facebook_api_end_mym, method='POST', data=urlencode(facebook_api_data_mym).encode())
 
 # AzCodez Photo post
 # facebook_api_data_photo = {'url': 'https://azcodez.com/images/150633b813614aa8b24cd8459fcf0b21.png',
