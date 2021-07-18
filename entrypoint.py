@@ -9,11 +9,8 @@ from random import choice
 from urllib.request import urlopen, Request
 from urllib.parse import urlencode
 from datetime import datetime
-
 from atoma import parse_rss_bytes
-
 from utils import u, html_unescape, filter_json_index_by_year
-
 
 json_index_content = {}
 
@@ -37,7 +34,7 @@ current_timestamp = int(datetime.now().strftime('%Y%m%d%H%M%S'))
 current_hour = int(datetime.now().strftime('%H'))
 # if current_hour not in [9, 13, 15, 22]:
 #     print('Script wasnt called in a recommended hour. Aborting.')
-#     sys.exit(0)
+#     sys.exit(0) 
 
 # Shuffle though xml link
 for post in feed_data.items:
