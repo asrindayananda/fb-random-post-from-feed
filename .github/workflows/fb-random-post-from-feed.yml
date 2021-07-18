@@ -1,9 +1,9 @@
 name: fb-random-post-from-feed
 on:
-  push:
-    branches: master
-  schedule:
-    - cron: '0 22 * * *'
+  # push:
+  #   branches: master
+  # schedule:
+  #   - cron: '0 22 * * *'
   watch:
     types: [started]
 jobs:
